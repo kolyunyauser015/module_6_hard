@@ -4,9 +4,9 @@ import math
 class Figure:
     sides_count = 0
 
-    def __init__(self, __color,  *__sides, filled=True):
-        self.__color = [*__color]
-        self.__sides = [*__sides]
+    def __init__(self, color,  *sides, filled=True):
+        self.__color = [*color]
+        self.__sides = [*sides]
         self.filled = filled
 
     def get_color(self):
@@ -58,12 +58,12 @@ class Figure:
 class Circle(Figure):
     sides_count = 1
 
-    def __init__(self, __color, *args):
+    def __init__(self, color, *args):
         if len(args) == Circle.sides_count:
-            super().__init__(__color, *args)
+            super().__init__(color, *args)
         else:
             args = [1]
-            super().__init__(__color, *args)
+            super().__init__(color, *args)
 
     def get_radius(self):
         __radius = self.__len__()/(2*math.pi)
@@ -76,12 +76,12 @@ class Circle(Figure):
 class Triangle(Figure):
     sides_count = 3
 
-    def __init__(self, __color, *args):
+    def __init__(self, color, *args):
         if len(args) == Triangle.sides_count:
-            super().__init__(__color, *args)
+            super().__init__(color, *args)
         else:
             args = [1]*Triangle.sides_count
-            super().__init__(__color, *args)
+            super().__init__(color, *args)
 
     def get_square(self):
         pp = self.__len__()/2
@@ -92,15 +92,15 @@ class Triangle(Figure):
 class Cube(Figure):
     sides_count = 12
 
-    def __init__(self, __color, *args):
+    def __init__(self, color, *args):
         if len(args) == Cube.sides_count:
-            super().__init__(__color, *args)
+            super().__init__(color, *args)
         elif len(args) == 1:
             args = args * Cube.sides_count
-            super().__init__(__color, *args)
+            super().__init__(color, *args)
         else:
             args = [1]*Cube.sides_count
-            super().__init__(__color, *args)
+            super().__init__(color, *args)
 
     def get_volume(self):
         sd = self.get_sides()
